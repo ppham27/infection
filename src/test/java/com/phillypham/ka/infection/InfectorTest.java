@@ -6,7 +6,9 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class InfectorTest {
@@ -75,5 +77,47 @@ public class InfectorTest {
 		assertEquals(4, infectorA.count("1"));
 		assertTrue(usersA.getUser("4").isInfected());
 	}
-
+	
+	@Test
+	public void testSelectComponents() {
+		Map<String, Integer> componentSize = new TreeMap<String, Integer>();
+		componentSize.put("a", 16);		
+		componentSize.put("c", 2);
+		componentSize.put("h", 3);
+		componentSize.put("m", 2);
+		componentSize.put("t", 2);
+		componentSize.put("w", 1);
+		// case 1, simple sanity check
+		Set<String> actualSelectedComponents = Infector.selectComponents(componentSize, 1);
+		Set<String> expectedSelectedComponents = new TreeSet<String>();
+		expectedSelectedComponents.add("w");
+		assertEquals(expectedSelectedComponents, actualSelectedComponents);
+		// case 2, break tie by choosing h
+		actualSelectedComponents = Infector.selectComponents(componentSize, 3);
+		expectedSelectedComponents.clear();
+		expectedSelectedComponents.add("h");
+		assertEquals(expectedSelectedComponents, actualSelectedComponents);
+		// case 3, selected elements only have size 10
+		actualSelectedComponents = Infector.selectComponents(componentSize, 12);
+		expectedSelectedComponents.clear();
+		expectedSelectedComponents.add("c"); expectedSelectedComponents.add("h");
+		expectedSelectedComponents.add("m"); expectedSelectedComponents.add("t");
+		expectedSelectedComponents.add("w");
+		assertEquals(expectedSelectedComponents, actualSelectedComponents);
+		
+		// case4, greedy solution is not optimal, choose smaller elements
+		componentSize.clear();
+		componentSize.put("phil", 23);
+		componentSize.put("chris", 5);
+		componentSize.put("masato", 5);
+		componentSize.put("tim", 5);
+		componentSize.put("joon", 5);
+		componentSize.put("dan", 5);
+		actualSelectedComponents = Infector.selectComponents(componentSize, 25);
+		expectedSelectedComponents.clear();
+		expectedSelectedComponents.add("chris"); expectedSelectedComponents.add("masato");
+		expectedSelectedComponents.add("tim"); expectedSelectedComponents.add("joon");
+		expectedSelectedComponents.add("dan");
+		assertEquals(expectedSelectedComponents, actualSelectedComponents);								
+	}
 }

@@ -19,7 +19,7 @@ public class Infector {
 			cout.println("Output is the user ids to be infected with each connected component on a separate line.");
 			cout.close(); System.exit(-1);			
 		}
-		if (!args[2].equals("user") && !args[2].equals("limit")) {
+		if (!args[1].equals("user") && !args[1].equals("limit")) {
 			cout.println("The second arugment must be 'user' or 'limit'");
 			cout.close(); System.exit(-1);
 		}
@@ -35,11 +35,106 @@ public class Infector {
 			studentIds[i] = st.nextToken(); coachIds[i] = st.nextToken();
 		}
 		UserDatabase users = new UserDatabase(userIds, studentIds, coachIds);
-		Infector infector = new Infector(users);		
-		cout.println(users);
+		Infector infector = new Infector(users);
+		Map<String, Set<User>> componentsInfected = new TreeMap<String, Set<User>>();
+		if (args[1].equals("user")) {
+			if (users.userExists(args[2])) {
+				componentsInfected.put(args[2], infector.infect(args[2]));
+			} else {
+				cout.println("Error: " + args[2] + " is not a valid user.");
+				cout.close(); System.exit(-1);
+			}
+		} else {
+			// args[2].equals("limit")
+			int limit = -1; 
+			try {
+				limit = Integer.parseInt(args[2]);
+			} catch(Exception e) {
+				cout.println("Error: " + args[2] + " is not an integer.");
+				cout.close(); System.exit(-1);				
+			}
+			// associate a component with a user in that component
+			Set<User> visited = new TreeSet<User>();
+			Map<String, Integer> componentSize = new TreeMap<String, Integer>();
+			for (String id : userIds) {
+				if (!visited.contains(users.getUser(id))) {
+					Set<User> component = infector.getComponent(id);
+					visited.addAll(component);
+					componentSize.put(id, component.size());
+				}
+			}
+			// now solve the knapsack problem, we have a knapsack of size limit
+			// we want to fill our knapsack with components
+			Set<String> selectedComponents = selectComponents(componentSize, limit);
+			if (selectedComponents.size() == 0) {
+				int minComponentSize = Integer.MAX_VALUE;
+				for (int size : componentSize.values()) { 
+					if (size < minComponentSize) { minComponentSize = size; }
+				}
+				cout.println("Warning: no component was infected. The smallest component is of size " + minComponentSize + ".");
+				cout.close(); System.exit(0);
+			}
+			for (String id : selectedComponents) {
+				// infect the selected components
+				componentsInfected.put(id, infector.infect(id));
+			}
+		}
+		
+		// print each component on a separate line
+		int totalUsersInfected = 0;
+		for (Set<User> component : componentsInfected.values()) {			
+			Iterator<User> it = component.iterator();
+			cout.print(it.next().getId());
+			while (it.hasNext()) {
+				cout.print(' '); cout.print(it.next().getId());
+			}
+			cout.println();
+			totalUsersInfected += component.size();
+		}
+		cout.println();
+		cout.println(totalUsersInfected + " users were infected.");
 		fin.close();
 		cout.close();
 	}
+		
+	/**
+	 * Fill a knapsack of size limit with components.
+	 * @param componentSize a map of components and their sizes
+	 * @param limit the size of our knapsack
+	 * @return a set of the components that we select
+	 */
+	public static Set<String> selectComponents(Map<String, Integer> componentSize, int limit) {
+		class State {
+			int score;
+			Set<String> componentsUsed;
+			public State() {
+				this.score = 0; this.componentsUsed = new TreeSet<String>();
+			}
+			public State(int score, Set<String> componentsUsed) {
+				this.score = score;
+				this.componentsUsed = new TreeSet<String>();
+				this.componentsUsed.addAll(componentsUsed);
+			} 
+		}		
+		// solve knapsack problem with dynamic programming O(limit*numComponents)
+		State[] bestState = new State[limit + 1];
+		for (int i = 0; i <= limit; ++i) { bestState[i] = new State(); }
+		for (Map.Entry<String, Integer> e : componentSize.entrySet()) {
+			String id = e.getKey();
+			int size = e.getValue();
+			for (int s = limit; s >= size; --s) {
+				if (bestState[s].score < bestState[s-size].score + size || 
+						(bestState[s].score == bestState[s-size].score + size && 
+						bestState[s].componentsUsed.size() > bestState[s-size].componentsUsed.size() + 1)) {
+					// break ties by choosing the set with less components
+					bestState[s] = new State(bestState[s-size].score + size, bestState[s-size].componentsUsed);
+					bestState[s].componentsUsed.add(id);
+				}
+			}
+		}
+		return bestState[limit].componentsUsed;
+	}
+	
 	/**
 	 * Given a user, this function visits everyone in the component and infects/uninfects them
 	 * @param id the id of user to start the infection from
@@ -88,6 +183,10 @@ public class Infector {
 	
 	public Set<User> uninfect(String id) {
 		return changeInfectionState(id, false);
+	}
+	
+	public Set<User> getComponent(String id) {
+		return changeInfectionState(id, users.getUser(id).isInfected());
 	}
 	
 	public int count(String id) {

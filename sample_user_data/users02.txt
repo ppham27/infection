@@ -1,0 +1,12 @@
+6 5
+phil
+chris
+masato
+tim
+joon
+dan
+phil chris
+chris masato
+masato tim
+tim joon
+joon dan

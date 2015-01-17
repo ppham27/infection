@@ -15,6 +15,7 @@ public class UserDatabase {
 	}
 	
 	public UserDatabase(String[] userIds, String[] studentIds, String[] coachIds) {
+		this.users = new TreeMap<String, User>();
 		for (String id : userIds) { this.addUser(id); };
 		assert(studentIds.length == coachIds.length);
 		for (int i = 0; i < studentIds.length; ++i) {
@@ -47,7 +48,7 @@ public class UserDatabase {
 		return getUser(u.getId());
 	}
 	
-	public User getUser(String id) {
+	public User getUser(String id) {		
 		return users.get(id);
 	}
 	
@@ -57,5 +58,10 @@ public class UserDatabase {
 	
 	public boolean userExists(String id) {
 		return users.containsKey(id);
+	}
+	
+	@Override
+	public String toString() {
+		return users.toString();
 	}
 }

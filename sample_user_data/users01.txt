@@ -1,0 +1,51 @@
+26 24
+a
+b
+c
+d
+e
+f
+g
+h
+i
+j
+k
+l
+m
+n
+o
+p
+q
+r
+s
+t
+u
+v
+w
+x
+y
+z
+a b
+t u
+z a
+m n
+d e
+c v
+i e
+q a
+l s
+p r
+o l
+y l
+s d
+e f
+j h
+p q
+a x
+e x
+g f
+b f
+l z
+j k
+y o
+b i

@@ -5,7 +5,7 @@ This is my attempt at the Infection project. There are two modes of running.
 
 In one mode, you can selected a user to infect the component in which that user resides. Users are infected with a breadth-first search (BFS). 
 
-In the other mode, you can limit the number of infections. I interpreted the limit as a hard upper limit, so the number of infections has to be less than or equal to the user-given limit. Thus, it reduces to a knapsack problem. We have a knapsack of size limit, and are items are connected components with value and weight equal to the number of users in the component. Thus, it can be solved with dynamic programming in O((Number of users) + (Number of components)*(Limit)) time.
+In the other mode, you can limit the number of infections. I interpreted the *limit* as a hard upper limit, so the number of infections has to be less than or equal to the user-given *limit*. Thus, it reduces to a knapsack problem. We have a knapsack of size *limit*, and are items are connected components with value and weight equal to the number of users in the component. Thus, it can be solved with dynamic programming in O((*Number of users*) + (*Number of components*)(*limit*)) time.
 
 ## Usage
 Build with Maven, using 

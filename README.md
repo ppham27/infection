@@ -75,11 +75,11 @@ To visualize, use the tools in the visualization folder. In the visualization fo
 python -m http.server 8888
 ```
 
-and visit `http://localhost:8888/`.
+and visit `http://localhost:8888/`. If you're using Python 2, run `python -m SimpleHTTPServer 8888`.
 
 One can use the included graph.json file. Preparing the necessary graph.json file requires several steps.
 
 1. First, prepare your user data file similar to say sample_user_data/users01.txt.
 2. Then, get output from the java program. For example, `java -jar target/infection-1.0-SNAPSHOT.jar sample_user_data/users01.txt limit 21 > output.txt`.
-3. Finally, transform data with `python visualization/transform_graph_to_json.py`. For intance, `python visualization/transform_graph_to_json.py sample_user_data/users01.txt output.txt` will produce a graph.json file in the present working directory.
-4. Finally, copy graph.json to the visualization folder, run `python -m http.server 8888` and visit `http://localhost:8888/`.
+3. Finally, transform data with `python visualization/transform_graph_to_json.py`. For instance, `python visualization/transform_graph_to_json.py sample_user_data/users01.txt output.txt` will produce a graph.json file in the present working directory.
+4. Finally, copy graph.json to the visualization folder, run `cd visualization && python -m http.server 8888`, and visit `http://localhost:8888/`.

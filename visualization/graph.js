@@ -1,6 +1,7 @@
 // basic set up
 var width=1024;
 var height=640;
+var nodeSize = 15;
 var uninfectedFill = "#b3cde3";
 var infectedFill = "#fbb4ae";
 var force = d3.layout.force()
@@ -8,7 +9,8 @@ var force = d3.layout.force()
     .charge(-400)
     .linkDistance(80)
     .on("tick", tick);
-var drag = force.drag();
+var drag = force.drag()
+    .on("dragstart", dragstart);
 var svg = d3.select("#graph")
     .append("svg")
     .attr("width", width)
@@ -25,6 +27,36 @@ svg.append("marker")
     .attr("orient", "auto")
     .append("path")
     .attr("d","M 0 0 L 10 5 L 0 10 z");
+// legend
+var rowSize = 40;
+var legendLabels = [{"row": 1, "label": "uninfected", "fill": uninfectedFill},
+                    {"row": 2, "label": "infected", "fill": infectedFill},
+                    {"row": 3, "label": "student-coach"}];
+var legend = svg
+    .append("g").attr("id", "legend")
+    .attr("transform","translate(30 20)");
+legend.selectAll(".legend-label")
+    .data(legendLabels).enter()
+    .append("text")
+    .attr("x", 30)
+    .attr("y", function(d) { return d.row*rowSize; })
+    .attr("text-anchor", "right")
+    .attr("dy", "5px")
+    .text(function(d) { return d.label; });
+legend.selectAll(".legend-circle")
+    .data(legendLabels.slice(0, 2)).enter()
+    .append("circle")
+    .attr("class", "node")
+    .attr("cy", function(d) { return d.row*rowSize; })
+    .attr("r", nodeSize)
+    .attr("fill", function(d) { return d.fill; });
+legend
+    .append("line")
+    .attr("class", "link")
+    .attr("x1", -nodeSize).attr("y1", rowSize*3)
+    .attr("x2", nodeSize-5).attr("y2", rowSize*3)
+    .attr("marker-end", "url(#arrowhead)");
+
 // state variables
 var infectionState = 0;
 var numInfected = 0;
@@ -51,9 +83,9 @@ controls.append("span")
     .attr("id", "infected-number")
     .text(numInfected);
 // build graph
-var link = svg.selectAll(".link");
-var node = svg.selectAll(".node");
-var nodeLabel = svg.selectAll(".node-label");
+var link = svg.selectAll(".link.data");
+var node = svg.selectAll(".node.data");
+var nodeLabel = svg.selectAll(".node-label.data");
 d3.json("graph.json", function(error, graph) {
     force
         .nodes(graph.nodes)
@@ -61,19 +93,25 @@ d3.json("graph.json", function(error, graph) {
         .start();
     link = link.data(graph.links)
         .enter().append("line")
-        .attr("class", "link")
+        .attr("class", "link data")
         .attr("marker-end","url(#arrowhead)");
     node = node.data(graph.nodes)
         .enter().append("circle")
-        .attr("class", "node")
+        .attr("class", "node data")
         .attr("fill", uninfectedFill)
-        .attr("r", 15);    
-    node.call(drag);
+        .attr("r", nodeSize)
+        .on("mouseover", mouseoverNode)
+        .on("mouseout", mouseoutNode)
+        .call(drag);
     nodeLabel = nodeLabel.data(graph.nodes)
         .enter().append("text")
+        .attr("class", "node-label data")
         .attr("text-anchor", "middle")
         .attr("dy", "5px")
-        .text(function(d) { return d.name; });
+        .text(function(d) { return d.name; })
+        .on("mouseover", mouseoverNodeLabel)
+        .on("mouseout", mouseoutNodeLabel)
+        .call(drag);
 });
 
 // callbacks
@@ -87,6 +125,31 @@ function tick() {
     nodeLabel.attr("x", function(d) { return d.x; })
         .attr("y", function(d) { return d.y; });
 }
+
+
+function dragstart(d) {
+    node.each(function(dd) { dd.fixed = false; })
+    d.fixed = true;
+}
+
+function mouseoverNode() {
+    d3.select(this).classed("hover", true);
+}
+
+function mouseoutNode() {
+    d3.select(this).classed("hover", false);
+}
+
+function mouseoverNodeLabel() {    
+    var name = this.textContent;
+    node.filter(function(d) { return d.name === name; }).classed("hover", true);
+}
+
+function mouseoutNodeLabel() {
+    var name = this.textContent;
+    node.filter(function(d) { return d.name === name; }).classed("hover", false);    
+}
+
 function infect() {
     infectionState += 1;
     updateInfections();
@@ -106,6 +169,7 @@ function updateInfections() {
             return d.infect !== 0 && d.infect <= infectionState;
         }).transition().duration(transitionDuration).attr("fill", infectedFill).size();
     }
+    // number text transition
     d3.select("span#infected-number")
         .transition()
         .duration(transitionDuration)

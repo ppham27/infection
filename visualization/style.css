@@ -9,9 +9,20 @@ body {
 }
 
 .node {
-    cursor: move;
     stroke: #000;
     stroke-width: 1.5px;
+}
+
+.node.data {
+    cursor: move;
+}
+
+.node.data.hover {
+    stroke-width: 3px;
+}
+
+.node-label.data {
+    cursor: move
 }
 
 .button {

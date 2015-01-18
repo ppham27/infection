@@ -1,6 +1,6 @@
 // basic set up
-var width=960;
-var height=500;
+var width=1024;
+var height=640;
 var force = d3.layout.force()
     .size([width, height])
     .charge(-400)
@@ -64,7 +64,7 @@ d3.json("graph.json", function(error, graph) {
     node = node.data(graph.nodes)
         .enter().append("circle")
         .attr("class", "node")
-        .attr("r", 20);    
+        .attr("r", 15);    
     node.call(drag);
     nodeLabel = nodeLabel.data(graph.nodes)
         .enter().append("text")
@@ -77,8 +77,8 @@ d3.json("graph.json", function(error, graph) {
 function tick() {
     link.attr("x1", function(d) { return d.source.x; })
         .attr("y1", function(d) { return d.source.y; })
-        .attr("x2", function(d) { return d.source.x + 0.65*(d.target.x - d.source.x); })
-        .attr("y2", function(d) { return d.source.y + 0.65*(d.target.y - d.source.y); })
+        .attr("x2", function(d) { return d.source.x + 0.75*(d.target.x - d.source.x); })
+        .attr("y2", function(d) { return d.source.y + 0.75*(d.target.y - d.source.y); })
     node.attr("cx", function(d) { return d.x; })
         .attr("cy", function(d) { return d.y; });
     nodeLabel.attr("x", function(d) { return d.x; })

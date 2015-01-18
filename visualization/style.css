@@ -1,0 +1,29 @@
+body {
+    font-family: HelveticaNeue;
+    color: #333;
+}
+
+.link {
+    stroke: #000;
+    stroke-width: 1.5px;
+}
+
+.node {
+    cursor: move;
+    stroke: #000;
+    fill: #b3cde3;
+    stroke-width: 1.5px;
+}
+
+.node.infected {
+    fill: #fbb4ae;
+}
+
+.button {
+    padding: 10px;
+}
+
+#status {
+    padding: 10px;
+}
+

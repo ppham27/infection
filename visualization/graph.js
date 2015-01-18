@@ -44,7 +44,7 @@ controls
     .on("click", reset);
 controls.append("span")
     .attr("id", "status")
-    .text("Number Infected: ")
+    .text("Users Infected: ")
     .append("span")
     .attr("id", "infected-number")
     .text(numInfected);
@@ -100,7 +100,7 @@ function updateInfections() {
     }
     numInfected = node.filter(function(d) { 
         return d.infect !== 0 && d.infect <= infectionState;
-    }).classed("infected", true).size();    
+    }).classed("infected", true).size();
     d3.select("span#infected-number")
         .transition()
         .duration(500)
@@ -108,7 +108,7 @@ function updateInfections() {
             var f = d3.interpolate(oldNumInfected, numInfected);
             return function(t)  {
                 var intNumInfected = f(t);
-                this.textContent = intNumInfected.toString().slice(0,3);
+                this.textContent = intNumInfected.toFixed(0);
                 if (intNumInfected === node.filter(function(d) { return d.infect > 0; }).size()) {
                     d3.select("span#infected-number").text(numInfected + ". All infected!");
                 }

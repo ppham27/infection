@@ -92,7 +92,11 @@ public class Infector {
 			totalUsersInfected += component.size();
 		}
 		cout.println();
-		cout.println(totalUsersInfected + " users were infected.");
+		if (totalUsersInfected == 1) {
+			cout.println(totalUsersInfected + " user was infected.");
+		} else {
+			cout.println(totalUsersInfected + " users were infected.");
+		}
 		fin.close();
 		cout.close();
 	}

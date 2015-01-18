@@ -1,6 +1,8 @@
 // basic set up
 var width=1024;
 var height=640;
+var uninfectedFill = "#b3cde3";
+var infectedFill = "#fbb4ae";
 var force = d3.layout.force()
     .size([width, height])
     .charge(-400)
@@ -64,6 +66,7 @@ d3.json("graph.json", function(error, graph) {
     node = node.data(graph.nodes)
         .enter().append("circle")
         .attr("class", "node")
+        .attr("fill", uninfectedFill)
         .attr("r", 15);    
     node.call(drag);
     nodeLabel = nodeLabel.data(graph.nodes)
@@ -93,17 +96,19 @@ function reset() {
     updateInfections();
 }
 function updateInfections() {
+    var transitionDuration = 1000;
     var oldNumInfected = numInfected;
     if (infectionState === 0) {
-        node.classed("infected", false);
+        node.transition().duration(transitionDuration).attr("fill", uninfectedFill);
         numInfected = 0;
+    } else {
+        numInfected = node.filter(function(d) { 
+            return d.infect !== 0 && d.infect <= infectionState;
+        }).transition().duration(transitionDuration).attr("fill", infectedFill).size();
     }
-    numInfected = node.filter(function(d) { 
-        return d.infect !== 0 && d.infect <= infectionState;
-    }).classed("infected", true).size();
     d3.select("span#infected-number")
         .transition()
-        .duration(500)
+        .duration(transitionDuration)
         .tween("textContent", function() {
             var f = d3.interpolate(oldNumInfected, numInfected);
             return function(t)  {

@@ -11,12 +11,7 @@ body {
 .node {
     cursor: move;
     stroke: #000;
-    fill: #b3cde3;
     stroke-width: 1.5px;
-}
-
-.node.infected {
-    fill: #fbb4ae;
 }
 
 .button {

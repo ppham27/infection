@@ -6,7 +6,6 @@ var uninfectedFill = "#b3cde3";
 var infectedFill = "#fbb4ae";
 var force = d3.layout.force()
     .size([width, height])
-    .charge(-400)
     .linkDistance(80)
     .on("tick", tick);
 var drag = force.drag()
@@ -87,6 +86,7 @@ var link = svg.selectAll(".link.data");
 var node = svg.selectAll(".node.data");
 var nodeLabel = svg.selectAll(".node-label.data");
 d3.json("graph.json", function(error, graph) {
+    force.charge(Math.min(-450+graph.nodes.length*5, -75));
     force
         .nodes(graph.nodes)
         .links(graph.links)

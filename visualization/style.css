@@ -4,12 +4,17 @@ body {
 }
 
 .link {
-    stroke: #000;
+    stroke: #777;
     stroke-width: 1.5px;
 }
 
+#arrowhead {
+    stroke: #777;
+    fill: #777;
+}
+
 .node {
-    stroke: #000;
+    stroke: #777;
     stroke-width: 1.5px;
 }
 

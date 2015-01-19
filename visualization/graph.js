@@ -28,7 +28,7 @@ svg.append("marker")
     .append("path")
     .attr("d","M 0 0 L 10 5 L 0 10 z");
 // legend
-var rowSize = 40;
+var legendRowHeight = 40;
 var legendLabels = [{"row": 1, "label": "uninfected", "fill": uninfectedFill},
                     {"row": 2, "label": "infected", "fill": infectedFill},
                     {"row": 3, "label": "student-coach"}];
@@ -39,7 +39,7 @@ legend.selectAll(".legend-label")
     .data(legendLabels).enter()
     .append("text")
     .attr("x", 30)
-    .attr("y", function(d) { return d.row*rowSize; })
+    .attr("y", function(d) { return d.row*legendRowHeight; })
     .attr("text-anchor", "right")
     .attr("dy", "5px")
     .text(function(d) { return d.label; });
@@ -47,14 +47,14 @@ legend.selectAll(".legend-circle")
     .data(legendLabels.slice(0, 2)).enter()
     .append("circle")
     .attr("class", "node")
-    .attr("cy", function(d) { return d.row*rowSize; })
+    .attr("cy", function(d) { return d.row*legendRowHeight; })
     .attr("r", nodeSize)
     .attr("fill", function(d) { return d.fill; });
 legend
     .append("line")
     .attr("class", "link")
-    .attr("x1", -nodeSize).attr("y1", rowSize*3)
-    .attr("x2", nodeSize-5).attr("y2", rowSize*3)
+    .attr("x1", -nodeSize).attr("y1", legendRowHeight*3)
+    .attr("x2", nodeSize-5).attr("y2", legendRowHeight*3)
     .attr("marker-end", "url(#arrowhead)");
 
 // state variables
@@ -140,19 +140,20 @@ function mouseoutNode() {
     d3.select(this).classed("hover", false);
 }
 
-function mouseoverNodeLabel() {    
-    var name = this.textContent;
-    node.filter(function(d) { return d.name === name; }).classed("hover", true);
+function mouseoverNodeLabel(d) {    
+    node.filter(function(dd) { return dd.name === d.name; }).classed("hover", true);
 }
 
-function mouseoutNodeLabel() {
-    var name = this.textContent;
-    node.filter(function(d) { return d.name === name; }).classed("hover", false);    
+function mouseoutNodeLabel(d) {
+    node.filter(function(dd) { return d.name === d.name; }).classed("hover", false);    
 }
 
 function infect() {
-    infectionState += 1;
-    updateInfections();
+    // if there are still users left to infect
+    if (numInfected < node.filter(function(d) { return d.infect > 0; }).size()) {
+        infectionState += 1;
+        updateInfections();
+    }
 }
 function reset() {
     infectionState = 0;

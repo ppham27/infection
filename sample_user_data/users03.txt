@@ -1,0 +1,280 @@
+48 231
+hmado
+knxfm
+sbrvp
+mjtqa
+ujfxm
+ejwhb
+fsuow
+fmypq
+lgxjf
+ypcfv
+hwwwh
+ghdnx
+vvqsv
+audhz
+frjim
+vbyqu
+tgowh
+vrdwc
+flwaq
+rreyv
+lphbq
+bljau
+ywxlj
+ztypv
+jicwc
+dsnrm
+xgxje
+dpdwx
+hlylr
+vaaqf
+fzlxi
+njxei
+xivzt
+ttkiu
+ivlgp
+ekowp
+benzc
+qwpsw
+njpxp
+urbxk
+avmsj
+bgtfx
+idggy
+mgnvy
+jlqlf
+wgwzi
+cpapj
+cxudz
+hmado sbrvp
+hmado ujfxm
+knxfm sbrvp
+knxfm mjtqa
+knxfm ujfxm
+mjtqa ujfxm
+ejwhb fmypq
+ejwhb lgxjf
+ejwhb ypcfv
+fsuow fmypq
+fsuow lgxjf
+fsuow ypcfv
+fmypq lgxjf
+fmypq ypcfv
+lgxjf ypcfv
+hwwwh vvqsv
+hwwwh audhz
+hwwwh frjim
+ghdnx vvqsv
+ghdnx audhz
+ghdnx frjim
+vvqsv frjim
+vbyqu tgowh
+vbyqu vrdwc
+vbyqu flwaq
+tgowh vrdwc
+tgowh flwaq
+tgowh rreyv
+vrdwc rreyv
+flwaq rreyv
+lphbq bljau
+lphbq ztypv
+bljau ywxlj
+bljau ztypv
+bljau jicwc
+ywxlj ztypv
+ywxlj jicwc
+ztypv jicwc
+dsnrm xgxje
+dsnrm hlylr
+dsnrm vaaqf
+dsnrm xivzt
+dsnrm ivlgp
+dsnrm ekowp
+dsnrm benzc
+dsnrm urbxk
+dsnrm avmsj
+dsnrm mgnvy
+dsnrm cxudz
+xgxje hlylr
+xgxje vaaqf
+xgxje njxei
+xgxje xivzt
+xgxje ttkiu
+xgxje ivlgp
+xgxje ekowp
+xgxje qwpsw
+xgxje njpxp
+xgxje urbxk
+xgxje avmsj
+xgxje bgtfx
+xgxje idggy
+xgxje mgnvy
+xgxje jlqlf
+xgxje wgwzi
+xgxje cxudz
+dpdwx hlylr
+dpdwx vaaqf
+dpdwx fzlxi
+dpdwx njxei
+dpdwx xivzt
+dpdwx ttkiu
+dpdwx ekowp
+dpdwx benzc
+dpdwx qwpsw
+dpdwx njpxp
+dpdwx urbxk
+dpdwx avmsj
+dpdwx bgtfx
+dpdwx idggy
+dpdwx mgnvy
+dpdwx wgwzi
+dpdwx cpapj
+hlylr vaaqf
+hlylr fzlxi
+hlylr ttkiu
+hlylr ivlgp
+hlylr ekowp
+hlylr benzc
+hlylr qwpsw
+hlylr njpxp
+hlylr avmsj
+hlylr idggy
+hlylr mgnvy
+hlylr jlqlf
+hlylr wgwzi
+hlylr cpapj
+hlylr cxudz
+vaaqf fzlxi
+vaaqf njxei
+vaaqf xivzt
+vaaqf ttkiu
+vaaqf ivlgp
+vaaqf benzc
+vaaqf qwpsw
+vaaqf njpxp
+vaaqf urbxk
+vaaqf avmsj
+vaaqf bgtfx
+vaaqf idggy
+vaaqf mgnvy
+vaaqf jlqlf
+vaaqf cpapj
+vaaqf cxudz
+fzlxi xivzt
+fzlxi ttkiu
+fzlxi ivlgp
+fzlxi ekowp
+fzlxi benzc
+fzlxi qwpsw
+fzlxi njpxp
+fzlxi urbxk
+fzlxi bgtfx
+fzlxi idggy
+fzlxi mgnvy
+fzlxi jlqlf
+fzlxi cxudz
+njxei xivzt
+njxei ttkiu
+njxei ivlgp
+njxei ekowp
+njxei benzc
+njxei qwpsw
+njxei njpxp
+njxei urbxk
+njxei avmsj
+njxei bgtfx
+njxei idggy
+njxei mgnvy
+njxei wgwzi
+njxei cpapj
+njxei cxudz
+xivzt ivlgp
+xivzt ekowp
+xivzt benzc
+xivzt qwpsw
+xivzt urbxk
+xivzt avmsj
+xivzt bgtfx
+xivzt idggy
+xivzt mgnvy
+xivzt jlqlf
+xivzt cpapj
+xivzt cxudz
+ttkiu ekowp
+ttkiu benzc
+ttkiu qwpsw
+ttkiu njpxp
+ttkiu avmsj
+ttkiu bgtfx
+ttkiu idggy
+ttkiu jlqlf
+ttkiu wgwzi
+ttkiu cpapj
+ivlgp ekowp
+ivlgp qwpsw
+ivlgp urbxk
+ivlgp avmsj
+ivlgp bgtfx
+ivlgp idggy
+ivlgp mgnvy
+ivlgp jlqlf
+ivlgp cpapj
+ivlgp cxudz
+ekowp benzc
+ekowp qwpsw
+ekowp urbxk
+ekowp avmsj
+ekowp wgwzi
+ekowp cpapj
+benzc qwpsw
+benzc njpxp
+benzc urbxk
+benzc avmsj
+benzc bgtfx
+benzc idggy
+benzc mgnvy
+benzc jlqlf
+benzc wgwzi
+benzc cpapj
+qwpsw urbxk
+qwpsw avmsj
+qwpsw bgtfx
+qwpsw idggy
+qwpsw jlqlf
+qwpsw wgwzi
+qwpsw cpapj
+qwpsw cxudz
+njpxp urbxk
+njpxp avmsj
+njpxp idggy
+njpxp mgnvy
+njpxp jlqlf
+njpxp wgwzi
+njpxp cxudz
+urbxk avmsj
+urbxk bgtfx
+urbxk idggy
+urbxk mgnvy
+urbxk jlqlf
+urbxk cxudz
+avmsj bgtfx
+avmsj idggy
+avmsj mgnvy
+avmsj jlqlf
+avmsj wgwzi
+avmsj cpapj
+bgtfx mgnvy
+bgtfx jlqlf
+bgtfx wgwzi
+idggy mgnvy
+idggy jlqlf
+idggy wgwzi
+idggy cpapj
+mgnvy jlqlf
+mgnvy cxudz
+jlqlf wgwzi
+jlqlf cpapj
+jlqlf cxudz
+wgwzi cxudz
+cpapj cxudz

@@ -132,8 +132,8 @@ function tick() {
 
 
 function dragstart(d) {
-  node.each(function(dd) { dd.fixed = false; })
-    d.fixed = true;
+  node.each(function(dd) { dd.fixed = false; });
+  d.fixed = true;
 }
 
 function mouseoverNode() {

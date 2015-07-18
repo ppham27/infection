@@ -3,6 +3,10 @@ body {
     color: #333;
 }
 
+#graph {
+    width: 1024;
+}
+
 .link {
     stroke: #777;
     stroke-width: 1.5px;

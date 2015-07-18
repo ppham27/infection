@@ -1,0 +1,280 @@
+48 231
+hma
+knx
+sbr
+mjt
+ujf
+ejw
+fsu
+fmy
+lgx
+ypc
+hww
+ghd
+vvq
+aud
+frj
+vby
+tgo
+vrd
+flw
+rre
+lph
+blj
+ywx
+zty
+jic
+dsn
+xgx
+dpd
+hly
+vaa
+fzl
+njx
+xiv
+ttk
+ivl
+eko
+ben
+qwp
+njp
+urb
+avm
+bgt
+idg
+mgn
+jlq
+wgw
+cpa
+cxu
+hma sbr
+hma ujf
+knx sbr
+knx mjt
+knx ujf
+mjt ujf
+ejw fmy
+ejw lgx
+ejw ypc
+fsu fmy
+fsu lgx
+fsu ypc
+fmy lgx
+fmy ypc
+lgx ypc
+hww vvq
+hww aud
+hww frj
+ghd vvq
+ghd aud
+ghd frj
+vvq frj
+vby tgo
+vby vrd
+vby flw
+tgo vrd
+tgo flw
+tgo rre
+vrd rre
+flw rre
+lph blj
+lph zty
+blj ywx
+blj zty
+blj jic
+ywx zty
+ywx jic
+zty jic
+dsn xgx
+dsn hly
+dsn vaa
+dsn xiv
+dsn ivl
+dsn eko
+dsn ben
+dsn urb
+dsn avm
+dsn mgn
+dsn cxu
+xgx hly
+xgx vaa
+xgx njx
+xgx xiv
+xgx ttk
+xgx ivl
+xgx eko
+xgx qwp
+xgx njp
+xgx urb
+xgx avm
+xgx bgt
+xgx idg
+xgx mgn
+xgx jlq
+xgx wgw
+xgx cxu
+dpd hly
+dpd vaa
+dpd fzl
+dpd njx
+dpd xiv
+dpd ttk
+dpd eko
+dpd ben
+dpd qwp
+dpd njp
+dpd urb
+dpd avm
+dpd bgt
+dpd idg
+dpd mgn
+dpd wgw
+dpd cpa
+hly vaa
+hly fzl
+hly ttk
+hly ivl
+hly eko
+hly ben
+hly qwp
+hly njp
+hly avm
+hly idg
+hly mgn
+hly jlq
+hly wgw
+hly cpa
+hly cxu
+vaa fzl
+vaa njx
+vaa xiv
+vaa ttk
+vaa ivl
+vaa ben
+vaa qwp
+vaa njp
+vaa urb
+vaa avm
+vaa bgt
+vaa idg
+vaa mgn
+vaa jlq
+vaa cpa
+vaa cxu
+fzl xiv
+fzl ttk
+fzl ivl
+fzl eko
+fzl ben
+fzl qwp
+fzl njp
+fzl urb
+fzl bgt
+fzl idg
+fzl mgn
+fzl jlq
+fzl cxu
+njx xiv
+njx ttk
+njx ivl
+njx eko
+njx ben
+njx qwp
+njx njp
+njx urb
+njx avm
+njx bgt
+njx idg
+njx mgn
+njx wgw
+njx cpa
+njx cxu
+xiv ivl
+xiv eko
+xiv ben
+xiv qwp
+xiv urb
+xiv avm
+xiv bgt
+xiv idg
+xiv mgn
+xiv jlq
+xiv cpa
+xiv cxu
+ttk eko
+ttk ben
+ttk qwp
+ttk njp
+ttk avm
+ttk bgt
+ttk idg
+ttk jlq
+ttk wgw
+ttk cpa
+ivl eko
+ivl qwp
+ivl urb
+ivl avm
+ivl bgt
+ivl idg
+ivl mgn
+ivl jlq
+ivl cpa
+ivl cxu
+eko ben
+eko qwp
+eko urb
+eko avm
+eko wgw
+eko cpa
+ben qwp
+ben njp
+ben urb
+ben avm
+ben bgt
+ben idg
+ben mgn
+ben jlq
+ben wgw
+ben cpa
+qwp urb
+qwp avm
+qwp bgt
+qwp idg
+qwp jlq
+qwp wgw
+qwp cpa
+qwp cxu
+njp urb
+njp avm
+njp idg
+njp mgn
+njp jlq
+njp wgw
+njp cxu
+urb avm
+urb bgt
+urb idg
+urb mgn
+urb jlq
+urb cxu
+avm bgt
+avm idg
+avm mgn
+avm jlq
+avm wgw
+avm cpa
+bgt mgn
+bgt jlq
+bgt wgw
+idg mgn
+idg jlq
+idg wgw
+idg cpa
+mgn jlq
+mgn cxu
+jlq wgw
+jlq cpa
+jlq cxu
+wgw cxu
+cpa cxu

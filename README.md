@@ -1,4 +1,4 @@
-infection
+Infection
 ====
 
 This is my attempt at the Infection project. There are two modes of running. 
@@ -14,13 +14,16 @@ If I were to limit infections to exactly a certain number of users, I would firs
 I could improve on the method to solve the knapsack problem. Dynamic programming would not scale if *limit* or *Number of components* is large. It's probably not important to find the exact optimal solution, so heuristic searches that find semi-optimal solutions may be suitable here. The flexibility of the knapsack framework allows us to select components based on factors other than their size. It's possible that we want to assign larger components higher value for instance if the feature requires a large community.
 
 ## Usage
-Build with Maven, using 
-
+Build with Maven, run
 ```
-mvn install
+$ mvn install
 ```
-
 in the infection directory.
+
+To run the tests, run
+```
+$ mvn test
+```
 
 The user database is built from a file such as sample_user_data/users00.txt.
 
@@ -48,7 +51,7 @@ The first line is a pair of integers, N and M. N is the number of users, and M i
 To run,
 
 ```
-java -jar target/infection-1.0-SNAPSHOT.jar <user data file> (user|limit) (user id|limit)
+java -jar target/infection-1.1.jar <user data file> (user|limit) (user id|limit)
 ```
 
 If the second argument is user, then the third argument is user id. If the second argument is limit, then the third argument must be an integer. Output is the user ids to be infected with each connected component on a separate line.
@@ -56,13 +59,13 @@ If the second argument is user, then the third argument is user id. If the secon
 For example,
 
 ```
-java -jar target/infection-1.0-SNAPSHOT.jar sample_user_data/users00.txt user 1
+java -jar target/infection-1.1.jar sample_user_data/users00.txt user 1
 ```
 
 infects all users in the same connected component as user 1.
 
 ```
-java -jar target/infection-1.0-SNAPSHOT.jar sample_user_data/users01.txt limit 14 > output.txt
+java -jar target/infection-1.1.jar sample_user_data/users01.txt limit 14 > output.txt
 ```
 
 infects less than or equal to 14 users.
@@ -80,6 +83,6 @@ and visit `http://localhost:8888/`. If you're using Python 2, run `python -m Sim
 One can use the included graph.json file. Preparing the necessary graph.json file requires several steps.
 
 1. First, prepare your user data file similar to say sample_user_data/users01.txt.
-2. Then, get output from the java program. For example, `java -jar target/infection-1.0-SNAPSHOT.jar sample_user_data/users01.txt limit 21 > output.txt`.
+2. Then, get output from the java program. For example, `java -jar target/infection-1.1.jar sample_user_data/users01.txt limit 21 > output.txt`.
 3. Finally, transform data with `python visualization/transform_graph_to_json.py`. For instance, `python visualization/transform_graph_to_json.py sample_user_data/users01.txt output.txt` will produce a graph.json file in the present working directory.
 4. Finally, copy graph.json to the visualization folder, run `cd visualization && python -m http.server 8888`, and visit `http://localhost:8888/`.
